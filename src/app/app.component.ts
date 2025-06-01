@@ -1,12 +1,22 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+import { UsuarioComponent } from './components/usuario/usuario.component';
+import { VentasComponent } from './components/ventas/ventas.component';
+import { config } from './models/config';
+import { CineComponent } from './components/cine/cine.component';
+
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  
+  imports: [ CineComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'aprendiendo-angular';
+  title = 'Mi primer proyecto en angular';
+
+  titulo = config.title;
+  descripcion = config.descripcion;
 }

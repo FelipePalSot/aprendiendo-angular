@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+.resaltar{
+    background-color: yellow;
+    padding: 10px;
+    font-weight: bold;
+    font-style: italic;
+    font-family:  'Courier New', Courier, monospace;
+}
+
+.destacarMenos{
+    background-color: silver;
+    padding: 10px;
+    font-weight: bold;
+    font-style: italic;
+    font-family:  'Courier New', Courier, monospace;
+}
