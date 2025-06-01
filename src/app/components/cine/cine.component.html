@@ -22,7 +22,9 @@
 
 <input type="text" [(ngModel)] = "mi_pelicula" 
                     (focus)="haciendoFoco()" 
-                    (blur)="saliendoDelFoco()"/>
+                    (blur)="saliendoDelFoco()"
+                    (keyup)="pulsandoTeclas($event)"
+                    />
 <button (click)="showPelicula()">Mostrar Pelicula</button>
 <button (click)="addPelicula()">Añadir Pelicula</button>
 
