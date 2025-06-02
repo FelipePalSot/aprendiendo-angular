@@ -5,12 +5,13 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
 import { VentasComponent } from './components/ventas/ventas.component';
 import { config } from './models/config';
 import { CineComponent } from './components/cine/cine.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 
 @Component({
   selector: 'app-root',
   
-  imports: [ CineComponent],
+  imports: [CarritoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
