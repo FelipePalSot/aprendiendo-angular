@@ -6,12 +6,14 @@ import { VentasComponent } from './components/ventas/ventas.component';
 import { config } from './models/config';
 import { CineComponent } from './components/cine/cine.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { CarritoSignalsComponent } from './components/carrito-signals/carrito-signals.component';
+
 
 
 @Component({
   selector: 'app-root',
   
-  imports: [CarritoComponent],
+  imports: [CarritoSignalsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
