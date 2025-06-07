@@ -8,13 +8,14 @@ import { CineComponent } from './components/cine/cine.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { CarritoSignalsComponent } from './components/carrito-signals/carrito-signals.component';
 import { PadreComponent } from './components/padre/padre.component';
+import { UsuariosHTTPComponent } from './components/usuarios-http/usuarios-http.component';
 
 
 
 @Component({
   selector: 'app-root',
   
-  imports: [CineComponent],
+  imports: [UsuariosHTTPComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
