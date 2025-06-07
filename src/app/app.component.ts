@@ -7,13 +7,14 @@ import { config } from './models/config';
 import { CineComponent } from './components/cine/cine.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { CarritoSignalsComponent } from './components/carrito-signals/carrito-signals.component';
+import { PadreComponent } from './components/padre/padre.component';
 
 
 
 @Component({
   selector: 'app-root',
   
-  imports: [CarritoSignalsComponent],
+  imports: [CineComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

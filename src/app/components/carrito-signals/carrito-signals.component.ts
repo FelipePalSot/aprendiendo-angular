@@ -22,17 +22,60 @@ export class CarritoSignalsComponent {
 
       effect(()=>{
         this.comprobarNotificacion();
-      })
+      });
+
+      effect(()=>{
+       console.log("El nombre de la tienda ahora ha cambiado: ", this.nombreTienda());
+      });
 
     }
 
-     addProducto(){
+    addProducto(){
       this.cantidadProductos.update(cantidad => cantidad + 1) ;
       this.totalCarrito.update(total => total + this.precioBase)
 
       console.log(`Nuevo producto añadido. Precio total actual ${this.totalCarrito()} $`)
       // this.comprobarNotificacion(); **Esto es una actualizacion manual, ahora lo hago por el efecto**
     }
+
+    add5Producto(){
+      this.cantidadProductos.update(cantidad => cantidad + 5) ;
+      this.totalCarrito.update(total => total + (this.precioBase * 5));
+
+      console.log(`Cindo productos añadidos. Precio total actual ${this.totalCarrito()} $`)
+      // this.comprobarNotificacion(); **Esto es una actualizacion manual, ahora lo hago por el efecto**
+    }
+
+    deleteProducto(){
+      if(this.cantidadProductos() >=1){
+        this.cantidadProductos.update(cantidad => -1);
+        this.totalCarrito.update(total => total - this.precioBase);
+
+        console.log(`Producto eliminado. Precio total actual ${this.totalCarrito} $`)
+        // this.comprobarNotificacion();
+      }
+    }
+
+    vaciarCarrito(){
+        this.cantidadProductos.set(0);
+        this.totalCarrito.set(0);
+
+        console.log(`Carrito vaciado. Precio total actual ${this.totalCarrito()} $`)
+        // this.comprobarNotificacion();
+    }
+
+    descuento(){
+      if(this.totalCarrito() > 0 && this.contadorLimiteCupon <= 0 ){
+        this.contadorLimiteCupon = 1;
+        this.totalCarrito.update(total => total*0.8);
+        this.totalCarrito.set(parseFloat(this.totalCarrito().toFixed(2))) ;
+      
+
+      console.log(`Descuento Aplicado. Precio total actual ${this.totalCarrito} $`)
+      // this.comprobarNotificacion();
+      }
+    }
+
     
     comprobarNotificacion(){
       console.log("**Comprobando notificacion")

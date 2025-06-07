@@ -1,44 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { Pelicula } from '../../models/pelicula'
 import { FormsModule } from '@angular/forms';
 import { NgStyle } from '@angular/common';
+import { PeliculaService } from  '../../services/pelicula.service';
 
 @Component({
   selector: 'app-cine',
   imports: [FormsModule, NgStyle],
+  // providers: [PeliculaService], Se aplica sino colocamos providedIn: "root", en el servicio de Injectable
   templateUrl: './cine.component.html',
   styleUrl: './cine.component.css'
 })
 export class CineComponent {
   public titulo: string;
   public peliculas: Array<Pelicula>;
-
   //Para trabajar con formularios y binding bidereccional
   public mi_pelicula: string = "";
   public pelisSinDatos: string[] = [];
 
   public color: string = "#FFFFFF"
 
-  constructor(){
+  constructor(
+    private peliculaService: PeliculaService
+  ){
     this.titulo = "Modelos";
-    this.peliculas = [
-      new Pelicula(1,"El padrino", "Mafia", "Copola", 1976, "prime", false),
-      new Pelicula(2,"The Shawshank Redemption", "Drama", "Frank Darabont", 1994, "netflix", false),
-      new Pelicula(3,"The Dark Knight", "Action", "Christopher Nolan", 2008, "hbo", false),
-      new Pelicula(4,"Pulp Fiction", "Crime", "Quentin Tarantino", 1994, "netflix", false),
-      new Pelicula(5,"Forrest Gump", "Drama", "Robert Zemeckis", 1994, "prime", false),
-      new Pelicula(6,"Inception", "Sci-Fi", "Christopher Nolan", 2010, "netflix", false),
-      new Pelicula(7,"The Matrix", "Sci-Fi", "Wachowskis", 1999, "hbo", false),
-      new Pelicula(8,"Spirited Away", "Animation", "Hayao Miyazaki", 2001, "netflix", false),
-      new Pelicula(9,"Parasite", "Thriller", "Bong Joon Ho", 2019, "hulu", false), 
-      new Pelicula(10,"Gladiator", "Action", "Ridley Scott", 2000, "prime", false),
-      new Pelicula(11,"Interstellar", "Sci-Fi", "Christopher Nolan", 2014, "prime", false)
-    ];
+
+    this.peliculas = this.peliculaService.getPeliculas();
   }
 
   ngOnInit(){
     console.log(this.peliculas);
-    this.peliculas[1].titulo = "ET el MARCIANO"
+    this.peliculas[1].titulo = "ET el MARCIANO";
+
+    this.peliculaService.saludoService();
   }
 
   ngDoCheck(){
