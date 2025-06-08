@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { VentasComponent } from './components/ventas/ventas.component';
@@ -15,7 +15,7 @@ import { UsuariosHTTPComponent } from './components/usuarios-http/usuarios-http.
 @Component({
   selector: 'app-root',
   
-  imports: [UsuariosHTTPComponent],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
