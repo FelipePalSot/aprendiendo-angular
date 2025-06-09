@@ -10,6 +10,7 @@ import { PadreComponent } from './components/padre/padre.component';
 import { PeliculaComponent } from './components/pelicula/pelicula.component';
 import { UsuariosHTTPComponent } from './components/usuarios-http/usuarios-http.component';
 import { Pagina404Component } from './components/pagina404/pagina404.component';
+import { FormulariosComponent } from './components/formularios/formularios.component';
 
 export const routes: Routes = [
     {path: "", component: ProductComponent },
@@ -24,6 +25,7 @@ export const routes: Routes = [
     {path: "comunicacion", component: PadreComponent },
     {path: "servicios/:id", component: UsuariosHTTPComponent },
     {path: "servicios", component: UsuariosHTTPComponent },
+    {path: "formularios", component: FormulariosComponent },
     {path: "**", component:  Pagina404Component},
     
 ];
